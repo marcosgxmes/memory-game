@@ -2,6 +2,9 @@ const grid = document.querySelector('.grid');
 const spanPlayer = document.querySelector('.player');
 const timer = document.querySelector(".timer");
 
+let firstCard = '';
+let secondCard = '';
+
 const characters = [
   'beth',
   'jerry',
@@ -20,9 +23,6 @@ const createElement = (tag, className) => {
   element.className = className;
   return element;
 }
-
-let firstCard = '';
-let secondCard = '';
 
 const checkEndGame = () => {
   const disabledCards = document.querySelectorAll('.disabled-card');
@@ -109,7 +109,6 @@ const loadGame = () => {
 }
 
 const startTimer = () => {
-
   this.loop = setInterval(() => {
     const currenttime = Number(timer.innerHTML);
     timer.innerHTML = currenttime + 1;
@@ -118,7 +117,6 @@ const startTimer = () => {
 
 window.onload = () => {
   spanPlayer.innerHTML = localStorage.getItem("player");
-
   startTimer();
   loadGame();
 }
